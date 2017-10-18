@@ -26,6 +26,9 @@ public class Passenger extends Person {
 		this.ratings = ratings;
 	} 
 	
-	
-	
+	public RideRequest requestRide(Location destination) {
+		RideRequest request = new RideRequest(this, location, destination);
+		
+		return request;	
+	}
 }

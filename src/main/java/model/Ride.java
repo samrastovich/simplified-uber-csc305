@@ -33,6 +33,8 @@ public class Ride {
 	public double calculateRideCost() {
 		return distance * payRate;
 	}
-	
+	public void cancel() {
+		
+	}
 	
 }
