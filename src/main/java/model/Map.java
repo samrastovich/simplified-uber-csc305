@@ -1,13 +1,21 @@
 package model;
 
+import java.io.IOException;
+
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 public class Map {
 	
 	private Location[] grid;
+	private int size;
 	
-	public Map() {
-		this.grid = new Location[300];
-		for (int i = 0; i < 300; i++) {
-			for (int j = 0; j < 300; j++) {
+	public Map(int size) {
+		this.size = size;
+		this.grid = new Location[size];
+		for (int i = 0; i < size; i++) {
+			for (int j = 0; j < size; j++) {
 				grid[i] = new Location(i, j);
 			}
 		}		
@@ -22,12 +30,32 @@ public class Map {
 	}
 	
 	public boolean inGrid(Location location) {
-		if (location.getX() > 299 || location.getX() < 0
-				|| location.getY() > 299 || location.getY() < 0)
+		if (location.getX() > (size -1) || location.getX() < 0
+				|| location.getY() > (size - 1) || location.getY() < 0)
 			return false;
 		return true;
 	}
 	
+	public void draw() {
+		
+	}
+	public String toJson() {
+		ObjectMapper mapper = new ObjectMapper();
+		String json = null;
+		
+		try {
+			json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(this);
+			
+		} catch(JsonGenerationException e) {
+			e.printStackTrace();
+		} catch(JsonMappingException e) {
+			e.printStackTrace();
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
+		
+		return json;
+	}
 	
 	
 	

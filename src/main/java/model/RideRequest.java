@@ -1,9 +1,14 @@
 package model;
 
+import java.io.IOException;
+
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 public class RideRequest {
 	
 	private Passenger passenger; 
-	private Driver driver;
 	private Location destination;
 	private Location origin;
 	
@@ -18,12 +23,6 @@ public class RideRequest {
 	}
 	public void setPassenger(Passenger passenger) {
 		this.passenger = passenger;
-	}
-	public Driver getDriver() {
-		return driver;
-	}
-	public void setDriver(Driver driver) {
-		this.driver = driver;
 	}
 
 	public Location getDestination() {
@@ -41,6 +40,22 @@ public class RideRequest {
 	public void setOrigin(Location origin) {
 		this.origin = origin;
 	}
-	
+	public String toJson() {
+		ObjectMapper mapper = new ObjectMapper();
+		String json = null;
+		
+		try {
+			json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(this);
+			
+		} catch(JsonGenerationException e) {
+			e.printStackTrace();
+		} catch(JsonMappingException e) {
+			e.printStackTrace();
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
+		
+		return json;
+	}
 	
 }

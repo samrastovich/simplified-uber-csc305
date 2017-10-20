@@ -14,18 +14,26 @@ import model.RideRequest;
 public class SimulateUber implements Runnable {
 	
 	private List<Driver> drivers;
-	private Passenger passenger;
 	
 	public SimulateUber(List<Driver> drivers, Passenger passenger) {
 		this.drivers = drivers;
-		this.passenger = passenger;
+	}
+	
+	public Driver findClosestDriver(RideRequest request) {
+		Driver closest = drivers.get(0);
+		double min = drivers.get(0).getLocation().calculateDistance(request.getOrigin());
+		for (int i = 1; i < drivers.size(); i++) {
+			if (drivers.get(i).getLocation().calculateDistance(request.getOrigin()) < min)
+				closest = drivers.get(i);
+		}
+		return closest;
 	}
 	
 	public void run() {
 		Random rand = new Random();
-		Location destination = new Location(rand.nextInt(300), rand.nextInt(300));
-		RideRequest request = passenger.requestRide(destination);
 		
+		Location destination = new Location(rand.nextInt(300), rand.nextInt(300));
+			
 		
 	}
 	
