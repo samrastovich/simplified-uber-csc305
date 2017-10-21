@@ -49,9 +49,7 @@ public class Ride {
 		this.driver = driver;
 	}
 	
-	public void getLog() {
-		
-	}
+
 	public String toJson() {
 		ObjectMapper mapper = new ObjectMapper();
 		String json = null;

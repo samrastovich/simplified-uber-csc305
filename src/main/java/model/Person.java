@@ -59,6 +59,16 @@ public abstract class Person {
 		}
 		return res; 
 	}
+	public boolean pay(double amount, Person other) {
+		if (this.balance - amount < 0) {
+			return false;
+		
+		} else {
+			this.balance -= amount;
+			other.balance += amount;
+			return true;
+		}		
+	}
 	public String toJson() {
 		ObjectMapper mapper = new ObjectMapper();
 		String json = null;

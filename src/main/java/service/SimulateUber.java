@@ -1,4 +1,4 @@
-package test;
+package service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,6 +14,11 @@ import model.RideRequest;
 public class SimulateUber implements Runnable {
 	
 	private List<Driver> drivers;
+	private double rate;
+	
+	public SimulateUber(double rate) {
+		this.rate = rate;
+	}
 	
 	public SimulateUber(List<Driver> drivers, Passenger passenger) {
 		this.drivers = drivers;
@@ -28,6 +33,8 @@ public class SimulateUber implements Runnable {
 		}
 		return closest;
 	}
+	
+	
 	
 	public void run() {
 		Random rand = new Random();

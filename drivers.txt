@@ -1,0 +1,11 @@
+Smith Tim 60.0 3 100
+Barkley Dave 0.0 100 90
+Broseph Dylan 78.8 298 5
+Rider Michelle 1000 10 10
+McGregor Tony 0 12 144
+Timmy Fred 80 156 78
+Schulte Ryan 76 90 82
+Nix Edgar 56.1 78 102
+Goecke Daniel 63.9 100 100
+Smyth Madeleine 15 90.3 144
+

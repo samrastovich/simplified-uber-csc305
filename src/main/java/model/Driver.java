@@ -13,6 +13,7 @@ public class Driver extends Person {
 	private boolean status;
 	private List<Car> cars;
 	private Car equippedCar;
+	private Ride currentRide;
 	
 	public Driver(String firstName, String lastName) {
 		super(firstName, lastName);
