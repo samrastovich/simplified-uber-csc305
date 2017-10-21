@@ -12,8 +12,8 @@ public class Passenger extends Person {
 	private Location location;
 	private List<Rating> ratings;
 	 
-	public Passenger(String firstName, String lastName) {
-		super(firstName, lastName);
+	public Passenger(String firstName, String lastName, double balance) {
+		super(firstName, lastName, balance);
 	}
 	
 	public Location getLocation() {

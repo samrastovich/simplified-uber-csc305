@@ -14,9 +14,10 @@ public abstract class Person {
 	private List<Rating> ratings;
 	private double balance;
 	
-	public Person(String firstName, String lastName) {
+	public Person(String firstName, String lastName, double balance) {
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.balance = balance;
 	}
 	
 	public String getFirstName() {

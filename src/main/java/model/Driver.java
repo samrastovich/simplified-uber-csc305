@@ -15,8 +15,8 @@ public class Driver extends Person {
 	private Car equippedCar;
 	private Ride currentRide;
 	
-	public Driver(String firstName, String lastName) {
-		super(firstName, lastName);
+	public Driver(String firstName, String lastName, double initialBalance) {
+		super(firstName, lastName, initialBalance);
 	}
 	
 	public Location getLocation() {
