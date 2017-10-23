@@ -1,0 +1,10 @@
+The design in which I have chosen works for both Uber and UberEats. The Ride class is essentially a log for the trip information. You can still store the customer's information in there, in the Passenger class. They technically won't be passengers, but the functionality is still the same.
+
+The only thing that could be potentially wrong with my design are the names. There will be no passengers, but the customer will be the same thing. I could change the name to Customer, but then that could be confusing for the Uber side of things. The functionality would go as this:
+    - The passenger would request a ride (which in this case would be a delivery)
+    - The driver still accepts or rejects the ride (again, delivery)
+    - if the customer doesn't have enough money the delivery is canceled and the driver is available for another pickup
+
+It doesn't matter either way if it's UberEats or not, this design works regardless!
+
+GitHub link: https://github.com/samrastovich/simplified-uber-csc305
