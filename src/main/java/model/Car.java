@@ -6,7 +6,12 @@ import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class Car extends JSONable {
+/**
+ * The car class that has make, model, color and licencse plate of the driver
+ * @author samrastovich
+ *
+ */
+public class Car {
 	
 	private String make;
 	private String model;

@@ -7,6 +7,11 @@ import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ * Passenger of Uber
+ * @author samrastovich
+ *
+ */
 public class Passenger extends Person {
 	
 	private Location location;

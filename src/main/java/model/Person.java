@@ -1,23 +1,31 @@
 package model;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ * Superclass that is a person using the Uber app
+ * @author samrastovich
+ *
+ */
 public abstract class Person {
 	
 	private String firstName;
 	private String lastName;
 	private List<Rating> ratings;
 	private double balance;
+	private double averageRating;
 	
 	public Person(String firstName, String lastName, double balance) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.balance = balance;
+		this.ratings = new ArrayList<Rating>();	
 	}
 	
 	public String getFirstName() {
@@ -46,12 +54,20 @@ public abstract class Person {
 	public void setBalance(double balance) {
 		this.balance = balance;
 	}
-	public double getAverageRating() {
+	private void calculateAverage() {
 		double total = 0;
 		for (Rating rating: this.getRatings()) {
 			total += rating.getRating();
 		}
-		return total / this.getRatings().size();
+		this.averageRating = total / ratings.size();
+	}
+	public double getAverageRating() {
+		if (!ratings.isEmpty())
+			calculateAverage();
+		return averageRating;
+	}
+	public void setAverageRating(double avgRating) {
+		this.averageRating = avgRating;
 	}
 	public boolean compare(Person other) {
 		boolean res = false;
@@ -69,6 +85,9 @@ public abstract class Person {
 			other.balance += amount;
 			return true;
 		}		
+	}
+	public void rate(Rating rating, Person other) {
+		other.ratings.add(rating);
 	}
 	public String toJson() {
 		ObjectMapper mapper = new ObjectMapper();

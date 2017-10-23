@@ -6,6 +6,11 @@ import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ * 300 x 300 grid for Uber testing
+ * @author samrastovich
+ *
+ */
 public class Map {
 	
 	private Location[] grid;

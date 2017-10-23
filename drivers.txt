@@ -7,5 +7,4 @@ Timmy Fred 80 156 78
 Schulte Ryan 76 90 82
 Nix Edgar 56.1 78 102
 Goecke Daniel 63.9 100 100
-Smyth Madeleine 15 90.3 144
-
+Smyth Madeleine 15.2 90 144

@@ -6,6 +6,11 @@ import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ * The request for a driver from a passenger
+ * @author samrastovich
+ *
+ */
 public class RideRequest {
 	
 	private Passenger passenger; 

@@ -5,7 +5,11 @@ import java.io.IOException;
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
+/**
+ * Rating for any person using Uber app
+ * @author samrastovich
+ *
+ */
 public class Rating {
 	
 	private int rating;

@@ -6,6 +6,11 @@ import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ * Location in grid. Contains x and y coordinate
+ * @author samrastovich
+ *
+ */
 public class Location {
 	
 	private int x;
@@ -29,6 +34,11 @@ public class Location {
 		this.y = y;
 	} 
 	
+	/**
+	 * Calculates the distance between one location and another
+	 * @param other
+	 * @return the distance 
+	 */
 	public double calculateDistance(Location other) {
 		return Math.hypot(this.x - other.x, this.y - other.y);
 	}

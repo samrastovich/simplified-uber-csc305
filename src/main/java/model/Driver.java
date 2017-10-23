@@ -7,6 +7,11 @@ import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ * Driver for Uber
+ * @author samrastovich
+ *
+ */
 public class Driver extends Person {
 
 	private Location location;
@@ -48,6 +53,28 @@ public class Driver extends Person {
 	public void setEquippedCar(Car equippedCar) {
 		this.equippedCar = equippedCar;
 	}
+	
+	public Ride getCurrentRide() {
+		return currentRide;
+	}
+
+	public void setCurrentRide(Ride currentRide) {
+		this.currentRide = currentRide;
+	}
+	public void cancelRide() {
+		this.currentRide = null;
+		setStatus(false);
+	}
+	public void acceptRide(RideRequest request) {
+		currentRide = new Ride(request);
+		currentRide.setDriver(this);
+		setStatus(true);
+	}
+	public void endRide() {
+		this.status = false;
+		this.currentRide = null;
+	}
+
 	public String toJson() {
 		ObjectMapper mapper = new ObjectMapper();
 		String json = null;

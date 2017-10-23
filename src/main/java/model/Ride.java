@@ -6,6 +6,11 @@ import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ * Ride Request becomes Ride after a driver has accepted. 
+ * @author samrastovich
+ *
+ */
 public class Ride {
 	
 	private RideRequest request;
