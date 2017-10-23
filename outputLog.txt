@@ -1,0 +1,15 @@
+{
+  "drivers" : [ {
+    "firstName" : "Ryan",
+    "lastName" : "Schulte",
+    "balance" : 76.0,
+    "averageRating" : 0.0,
+    "location" : {
+      "x" : 90,
+      "y" : 82
+    },
+    "status" : false,
+    "equippedCar" : null,
+    "currentRide" : null
+  } ]
+}

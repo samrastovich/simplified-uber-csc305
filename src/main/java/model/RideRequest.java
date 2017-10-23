@@ -16,6 +16,7 @@ public class RideRequest {
 	private Passenger passenger; 
 	private Location destination;
 	private Location origin;
+	private double rate;
 	
 	public RideRequest(Passenger passenger, Location origin, Location destination) {
 		this.passenger = passenger;
@@ -45,6 +46,15 @@ public class RideRequest {
 	public void setOrigin(Location origin) {
 		this.origin = origin;
 	}
+	
+	public double getRate() {
+		return rate;
+	}
+
+	public void setRate(double rate) {
+		this.rate = rate;
+	}
+
 	public String toJson() {
 		ObjectMapper mapper = new ObjectMapper();
 		String json = null;

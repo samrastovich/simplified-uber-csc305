@@ -1,6 +1,7 @@
 package model;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
@@ -16,12 +17,13 @@ public class Driver extends Person {
 
 	private Location location;
 	private boolean status;
-	private List<Car> cars;
 	private Car equippedCar;
 	private Ride currentRide;
+	private List<Ride> rides;
 	
 	public Driver(String firstName, String lastName, double initialBalance) {
 		super(firstName, lastName, initialBalance);
+		this.rides = new ArrayList<Ride>();
 	}
 	
 	public Location getLocation() {
@@ -35,15 +37,6 @@ public class Driver extends Person {
 	}
 	public void setStatus(boolean hasRoute) {
 		this.status = hasRoute;
-	}
-	public List<Car> getCars() {
-		return cars;
-	}
-	public void setCars(List<Car> cars) {
-		this.cars = cars;
-	}
-	public void addCar(Car car) {
-		cars.add(car);
 	}
 
 	public Car getEquippedCar() {
@@ -62,16 +55,24 @@ public class Driver extends Person {
 		this.currentRide = currentRide;
 	}
 	public void cancelRide() {
+		currentRide.setRideStatus("Ride was canceled");
+		rides.add(currentRide);
 		this.currentRide = null;
 		setStatus(false);
 	}
 	public void acceptRide(RideRequest request) {
 		currentRide = new Ride(request);
-		currentRide.setDriver(this);
 		setStatus(true);
+		currentRide.setRideStatus("Ride was accepted by " + getFirstName() + " " + getLastName());
+		currentRide.setDistance(request.getOrigin().calculateDistance(request.getDestination()));
+		double cost = request.getOrigin().calculateDistance(request.getDestination()) * request.getRate();
+		System.out.println(cost);
+		currentRide.setCost(cost);
+		
 	}
 	public void endRide() {
 		this.status = false;
+		rides.add(currentRide);
 		this.currentRide = null;
 	}
 

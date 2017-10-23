@@ -15,8 +15,8 @@ public class Ride {
 	
 	private RideRequest request;
 	private double distance;
-	private double payRate;
-	private Driver driver;
+	private String rideStatus;
+	private double cost;
 	
 	public Ride(RideRequest request) {
 		this.request = request;
@@ -36,24 +36,23 @@ public class Ride {
 	public void setDistance(double distance) {
 		this.distance = distance;
 	}
-	public double getPayRate() {
-		return payRate;
-	}
-	public void setPayRate(double payRate) {
-		this.payRate = payRate;
-	}
-	public double calculateRideCost() {
-		return distance * payRate;
+	
+	public String getRideStatus() {
+		return rideStatus;
 	}
 
-	public Driver getDriver() {
-		return driver;
-	}
-
-	public void setDriver(Driver driver) {
-		this.driver = driver;
+	public void setRideStatus(String rideStatus) {
+		this.rideStatus = rideStatus;
 	}
 	
+
+	public double getCost() {
+		return cost;
+	}
+
+	public void setCost(double cost) {
+		this.cost = cost;
+	}
 
 	public String toJson() {
 		ObjectMapper mapper = new ObjectMapper();

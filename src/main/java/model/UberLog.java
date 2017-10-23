@@ -1,6 +1,9 @@
 package model;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
@@ -14,14 +17,39 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  */
 public class UberLog {
 	
-	private List<Ride> rides;
-
-	public List<Ride> getRides() {
-		return rides;
+	private List<Driver> drivers;
+	
+	public UberLog() {
+		this.drivers = new ArrayList<Driver>();
 	}
 
-	public void setRides(List<Ride> rides) {
-		this.rides = rides;
+	public List<Driver> getDrivers() {
+		return drivers;
+	}
+
+	public void setDrivers(List<Driver> rides) {
+		this.drivers = rides;
+	}
+	
+	public void addDriver(Driver driver) {
+		drivers.add(driver);
+	}
+	
+	public void writeToFile(String fileName) {
+		try {
+			FileOutputStream out = new FileOutputStream(fileName);
+			String json = toJson();
+			System.out.println(json);
+			byte[] toBytes = toJson().getBytes();
+			out.write(toBytes);
+			
+			out.close();
+		} catch(FileNotFoundException e) {
+			e.printStackTrace();
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
+		
 	}
 	
 	public String toJson() {
